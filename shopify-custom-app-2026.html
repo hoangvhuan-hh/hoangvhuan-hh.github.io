@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopify custom apps ended — what replaced them</title>
+<meta name="description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<link rel="canonical" href="https://hhaico.com/storesheet/shopify-custom-app-2026.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HH AI Company">
+<meta property="og:title" content="Shopify custom apps ended — what replaced them">
+<meta property="og:description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<meta property="og:url" content="https://hhaico.com/storesheet/shopify-custom-app-2026.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="icon-32.png" sizes="32x32">
+<link rel="icon" href="icon-128.png" sizes="128x128">
+<style>
+  *{box-sizing:border-box}
+  html{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root{
+    --ground:#fbfcfb;
+    --surface:#ffffff;
+    --ink:#12312f;
+    --body:#33474a;
+    --muted:#6d8285;
+    --rule:#dbe4e2;
+    --grid:#e9efee;
+    --accent:#0d5c66;
+    --accent-soft:#e6f0f1;
+    --signal:#b3701a;
+    --shadow:0 1px 2px rgba(18,49,47,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0e1a1c;
+      --surface:#132427;
+      --ink:#e8f2f0;
+      --body:#c2d4d4;
+      --muted:#8fa8ab;
+      --rule:#22383b;
+      --grid:#1b2f32;
+      --accent:#5cbcc6;
+      --accent-soft:#12292d;
+      --signal:#dda551;
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0e1a1c;
+    --surface:#132427;
+    --ink:#e8f2f0;
+    --body:#c2d4d4;
+    --muted:#8fa8ab;
+    --rule:#22383b;
+    --grid:#1b2f32;
+    --accent:#5cbcc6;
+    --accent-soft:#12292d;
+    --signal:#dda551;
+    --shadow:none;
+  }
+
+  body{
+    background:var(--ground);
+    color:var(--body);
+    font:400 17px/1.65 "Source Serif 4", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:41rem;margin:0 auto;padding:0 1.5rem}
+
+  /* ---- mast ---- */
+  .mast{border-bottom:1px solid var(--rule);background:var(--surface)}
+  .mast .wrap{display:flex;align-items:center;gap:.7rem;padding-top:1rem;padding-bottom:1rem}
+  .mark{width:30px;height:30px;flex:none;border-radius:7px;background:var(--accent);
+        display:grid;place-items:center}
+  .mark svg{display:block}
+  .wordmark{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.05rem;
+            letter-spacing:-.01em;color:var(--ink)}
+  .mast .kind{margin-left:auto;font-family:"IBM Plex Mono",ui-monospace,monospace;
+              font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  main{padding:3rem 0 4.5rem}
+
+  h1{font-family:Archivo,system-ui,sans-serif;font-weight:700;color:var(--ink);
+     font-size:2.3rem;line-height:1.14;letter-spacing:-.025em;margin:0 0 1rem;text-wrap:balance}
+  h2{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.28rem;line-height:1.3;letter-spacing:-.012em;margin:2.9rem 0 .7rem;text-wrap:balance}
+  h3{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.02rem;margin:1.6rem 0 .35rem}
+  p{margin:0 0 1.05rem}
+  .lede{font-size:1.16rem;line-height:1.6;color:var(--ink)}
+  .stamp{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+         letter-spacing:.06em;color:var(--muted);margin:0 0 2.2rem}
+  ul,ol{margin:0 0 1.05rem;padding-left:1.3rem}
+  li{margin-bottom:.45rem}
+  a{color:var(--accent);text-underline-offset:.16em}
+  a:hover{text-decoration:none}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  strong{color:var(--ink);font-weight:600}
+  code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86em;
+       background:var(--accent-soft);color:var(--ink);padding:.1em .38em;border-radius:3px}
+
+  /* ---- spreadsheet-grid table: the one device borrowed from the subject ---- */
+  .sheet{overflow-x:auto;margin:0 0 1.4rem;border:1px solid var(--rule);border-radius:4px;
+         background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:.94rem;
+        font-variant-numeric:tabular-nums}
+  th,td{text-align:left;padding:.62rem .8rem;border-bottom:1px solid var(--grid);
+        border-right:1px solid var(--grid);vertical-align:top}
+  th:last-child,td:last-child{border-right:none}
+  tr:last-child td{border-bottom:none}
+  thead th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;
+           font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+           color:var(--muted);background:var(--accent-soft);border-bottom:1px solid var(--rule)}
+  tbody th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;
+           font-size:.86rem;color:var(--ink);white-space:nowrap}
+
+  .note{border-left:3px solid var(--signal);background:var(--surface);
+        padding:.95rem 1.15rem;margin:0 0 1.4rem;border-radius:0 4px 4px 0;font-size:.98rem}
+  .note p:last-child{margin-bottom:0}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:0 0 1.2rem;align-items:start}
+  .plan{border:1px solid var(--rule);border-radius:5px;padding:1.1rem 1.15rem;background:var(--surface);
+        display:flex;flex-direction:column;gap:.55rem}
+  .plan.lead{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .plan .tier{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;
+              letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0}
+  .plan.lead .tier{color:var(--accent)}
+  .plan .amt{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.75rem;
+             color:var(--ink);letter-spacing:-.02em;line-height:1;margin:0}
+  .plan .amt span{font-family:"Source Serif 4",serif;font-weight:400;font-size:.85rem;color:var(--muted)}
+  .plan .yearly{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+                color:var(--signal);margin:0;letter-spacing:.01em}
+  .plan ul{margin:0;padding-left:1.05rem;font-size:.93rem}
+  .plan li{margin-bottom:.28rem}
+  .plan p{margin:0;font-size:.93rem}
+
+  .steps{counter-reset:s;list-style:none;padding:0}
+  .steps li{counter-increment:s;position:relative;padding-left:2.3rem;margin-bottom:.85rem}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:.18em;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;color:var(--accent);
+    border:1px solid var(--rule);border-radius:3px;width:1.5rem;height:1.5rem;
+    display:grid;place-items:center;background:var(--surface)}
+
+  footer{border-top:1px solid var(--rule);padding:1.6rem 0 3rem;font-size:.85rem;color:var(--muted)}
+  footer p{margin:0 0 .5rem}
+  footer .links{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:.9rem}
+
+  @media (max-width:34rem){
+    h1{font-size:1.8rem}
+    .plans{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="mast"><div class="wrap">
+  <div class="mark" aria-hidden="true">
+    <svg width="17" height="17" viewBox="0 0 100 100">
+      <rect x="18" y="26" width="40" height="11" rx="5.5" fill="#fff"/>
+      <rect x="18" y="44.5" width="42" height="11" rx="5.5" fill="#f2a93b"/>
+      <polygon points="63,44 78,50 63,56" fill="#f2a93b"/>
+      <rect x="18" y="63" width="40" height="11" rx="5.5" fill="#fff"/>
+    </svg>
+  </div>
+  <span class="wordmark">Storesheet</span>
+  <span class="kind">GUIDE</span>
+</div></div>
+
+<main><div class="wrap">
+<h1>Shopify stopped letting you create custom apps. Here is what replaced it</h1>
+
+<p class="lede">Since 1 January 2026 you can no longer create a legacy custom app in your
+Shopify admin. If you followed a tutorial that says <em>Settings → Apps and sales channels
+→ Develop apps</em> and the button is not doing what the screenshots show, that is why.
+The replacement exists, it is not much harder, and it is better.</p>
+
+<h2>What actually changed</h2>
+
+<p>The old flow created an app that lived in your store and handed you a permanent access
+token — a long string starting <code>shpat_</code> — which you pasted into whatever tool
+needed it. That token never expired. Convenient, and exactly the problem: a string that
+never expires, copied into tools and config files, is a key you cannot take back without
+noticing you need to.</p>
+
+<p>Existing legacy custom apps keep working. You just cannot make new ones.</p>
+
+<h2>What to do instead</h2>
+
+<p>You create the app in the <strong>Shopify Dev Dashboard</strong> instead of in your
+store's admin, and it still belongs to your store. What you copy out is different: instead
+of one permanent token, you get a <strong>Client ID</strong> and a <strong>Client
+secret</strong>. The tool exchanges those for an access token that lasts 24 hours and
+refreshes itself.</p>
+
+<ol class="steps">
+<li>Open <code>dev.shopify.com/dashboard</code> and press <strong>Create app</strong>.</li>
+<li>Give it a name — whatever tool you are connecting.</li>
+<li>In the <strong>Versions</strong> tab, turn on only the scopes that tool needs. For
+    product editing that is usually <code>read_products</code> and
+    <code>write_products</code>. Press <strong>Release</strong>.</li>
+<li>Press <strong>Install app</strong> on your store.</li>
+<li>In <strong>Settings</strong>, copy the Client ID and Client secret into the tool.</li>
+</ol>
+
+<p>About a minute, once, per tool.</p>
+
+<h2>Why this is better, even though it is one more step</h2>
+
+<p>A 24-hour token that refreshes is worth more than a permanent one that does not. If a
+token leaks — a screenshot, a support ticket, an old config file in a repo — the window
+is a day rather than forever. Shopify is moving the whole platform this way: expiring
+tokens became mandatory for new public apps from 1 April 2026.</p>
+
+<p>You also get a real place to see what you have connected. Legacy custom app tokens were
+scattered across whatever tools you pasted them into. Apps in the Dev Dashboard are listed,
+and you can revoke one without touching the others.</p>
+
+<h2>The part that catches people out</h2>
+
+<p>This flow only works when <strong>the app and the store are in the same Shopify
+organization</strong>. In other words, the app has to be created by you, inside your own
+store — you cannot create one and point it at somebody else's shop. If a tool asks you to
+create the app yourself rather than handing you an "Install" button, that is not laziness
+on their part; it is the only way this grant type works without them running a server.</p>
+
+<p>It has a side effect worth knowing: a tool built this way has no server holding your
+credentials, because there is no server for them to sit on. Your keys go from your store
+to the tool running in your own account, and nowhere else.</p>
+
+<h2>If you still have an old token</h2>
+
+<p>It keeps working. There is no forced migration date announced for legacy custom apps
+that already exist. But it is a permanent credential in a platform that is deliberately
+moving away from those, so when a tool offers both, the Client ID route is the one to pick.</p>
+
+<p><a href="index.html">Storesheet</a> accepts either: paste the Client ID and secret, or
+paste an old <code>shpat_</code> token into the Client ID box and leave the secret empty.</p>
+
+<p class="stamp">Shopify's changelog entry is "Legacy custom apps can't be created after
+January 1, 2026". Dates and scope names change; check Shopify's current documentation
+before relying on any of this.</p>
+
+</div></main>
+<footer><div class="wrap">
+  <div class="links">
+    <a href="index.html">Storesheet</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+    <a href="staff-access-shopify.html">Guides</a>
+  </div>
+  <p>Google Sheets™ is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
+  Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
+</div></footer>
+</body>
+</html>

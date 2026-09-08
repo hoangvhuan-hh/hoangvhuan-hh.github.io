@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms of service — Storesheet</title>
+<meta name="description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<link rel="canonical" href="https://hhaico.com/storesheet/terms.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HH AI Company">
+<meta property="og:title" content="Terms of service — Storesheet">
+<meta property="og:description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<meta property="og:url" content="https://hhaico.com/storesheet/terms.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="icon-32.png" sizes="32x32">
+<link rel="icon" href="icon-128.png" sizes="128x128">
+<style>
+  *{box-sizing:border-box}
+  html{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root{
+    --ground:#fbfcfb;
+    --surface:#ffffff;
+    --ink:#12312f;
+    --body:#33474a;
+    --muted:#6d8285;
+    --rule:#dbe4e2;
+    --grid:#e9efee;
+    --accent:#0d5c66;
+    --accent-soft:#e6f0f1;
+    --signal:#b3701a;
+    --shadow:0 1px 2px rgba(18,49,47,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0e1a1c;
+      --surface:#132427;
+      --ink:#e8f2f0;
+      --body:#c2d4d4;
+      --muted:#8fa8ab;
+      --rule:#22383b;
+      --grid:#1b2f32;
+      --accent:#5cbcc6;
+      --accent-soft:#12292d;
+      --signal:#dda551;
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0e1a1c;
+    --surface:#132427;
+    --ink:#e8f2f0;
+    --body:#c2d4d4;
+    --muted:#8fa8ab;
+    --rule:#22383b;
+    --grid:#1b2f32;
+    --accent:#5cbcc6;
+    --accent-soft:#12292d;
+    --signal:#dda551;
+    --shadow:none;
+  }
+
+  body{
+    background:var(--ground);
+    color:var(--body);
+    font:400 17px/1.65 "Source Serif 4", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:41rem;margin:0 auto;padding:0 1.5rem}
+
+  /* ---- mast ---- */
+  .mast{border-bottom:1px solid var(--rule);background:var(--surface)}
+  .mast .wrap{display:flex;align-items:center;gap:.7rem;padding-top:1rem;padding-bottom:1rem}
+  .mark{width:30px;height:30px;flex:none;border-radius:7px;background:var(--accent);
+        display:grid;place-items:center}
+  .mark svg{display:block}
+  .wordmark{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.05rem;
+            letter-spacing:-.01em;color:var(--ink)}
+  .mast .kind{margin-left:auto;font-family:"IBM Plex Mono",ui-monospace,monospace;
+              font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  main{padding:3rem 0 4.5rem}
+
+  h1{font-family:Archivo,system-ui,sans-serif;font-weight:700;color:var(--ink);
+     font-size:2.3rem;line-height:1.14;letter-spacing:-.025em;margin:0 0 1rem;text-wrap:balance}
+  h2{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.28rem;line-height:1.3;letter-spacing:-.012em;margin:2.9rem 0 .7rem;text-wrap:balance}
+  h3{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.02rem;margin:1.6rem 0 .35rem}
+  p{margin:0 0 1.05rem}
+  .lede{font-size:1.16rem;line-height:1.6;color:var(--ink)}
+  .stamp{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+         letter-spacing:.06em;color:var(--muted);margin:0 0 2.2rem}
+  ul,ol{margin:0 0 1.05rem;padding-left:1.3rem}
+  li{margin-bottom:.45rem}
+  a{color:var(--accent);text-underline-offset:.16em}
+  a:hover{text-decoration:none}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  strong{color:var(--ink);font-weight:600}
+  code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86em;
+       background:var(--accent-soft);color:var(--ink);padding:.1em .38em;border-radius:3px}
+
+  /* ---- spreadsheet-grid table: the one device borrowed from the subject ---- */
+  .sheet{overflow-x:auto;margin:0 0 1.4rem;border:1px solid var(--rule);border-radius:4px;
+         background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:.94rem;
+        font-variant-numeric:tabular-nums}
+  th,td{text-align:left;padding:.62rem .8rem;border-bottom:1px solid var(--grid);
+        border-right:1px solid var(--grid);vertical-align:top}
+  th:last-child,td:last-child{border-right:none}
+  tr:last-child td{border-bottom:none}
+  thead th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;
+           font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+           color:var(--muted);background:var(--accent-soft);border-bottom:1px solid var(--rule)}
+  tbody th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;
+           font-size:.86rem;color:var(--ink);white-space:nowrap}
+
+  .note{border-left:3px solid var(--signal);background:var(--surface);
+        padding:.95rem 1.15rem;margin:0 0 1.4rem;border-radius:0 4px 4px 0;font-size:.98rem}
+  .note p:last-child{margin-bottom:0}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:0 0 1.2rem;align-items:start}
+  .plan{border:1px solid var(--rule);border-radius:5px;padding:1.1rem 1.15rem;background:var(--surface);
+        display:flex;flex-direction:column;gap:.55rem}
+  .plan.lead{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .plan .tier{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;
+              letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0}
+  .plan.lead .tier{color:var(--accent)}
+  .plan .amt{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.75rem;
+             color:var(--ink);letter-spacing:-.02em;line-height:1;margin:0}
+  .plan .amt span{font-family:"Source Serif 4",serif;font-weight:400;font-size:.85rem;color:var(--muted)}
+  .plan .yearly{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+                color:var(--signal);margin:0;letter-spacing:.01em}
+  .plan ul{margin:0;padding-left:1.05rem;font-size:.93rem}
+  .plan li{margin-bottom:.28rem}
+  .plan p{margin:0;font-size:.93rem}
+
+  .steps{counter-reset:s;list-style:none;padding:0}
+  .steps li{counter-increment:s;position:relative;padding-left:2.3rem;margin-bottom:.85rem}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:.18em;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;color:var(--accent);
+    border:1px solid var(--rule);border-radius:3px;width:1.5rem;height:1.5rem;
+    display:grid;place-items:center;background:var(--surface)}
+
+  footer{border-top:1px solid var(--rule);padding:1.6rem 0 3rem;font-size:.85rem;color:var(--muted)}
+  footer p{margin:0 0 .5rem}
+  footer .links{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:.9rem}
+
+  @media (max-width:34rem){
+    h1{font-size:1.8rem}
+    .plans{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="mast"><div class="wrap">
+  <div class="mark" aria-hidden="true">
+    <svg width="17" height="17" viewBox="0 0 100 100">
+      <rect x="18" y="26" width="40" height="11" rx="5.5" fill="#fff"/>
+      <rect x="18" y="44.5" width="42" height="11" rx="5.5" fill="#f2a93b"/>
+      <polygon points="63,44 78,50 63,56" fill="#f2a93b"/>
+      <rect x="18" y="63" width="40" height="11" rx="5.5" fill="#fff"/>
+    </svg>
+  </div>
+  <span class="wordmark">Storesheet</span>
+  <span class="kind">TERMS</span>
+</div></div>
+
+<main><div class="wrap">
+<main><div class="wrap">
+
+<h1>Terms of service</h1>
+<p class="stamp">Last updated 7 September 2026</p>
+
+<p class="lede">These terms cover your use of Storesheet, a Google Sheets add-on that reads
+and writes Shopify product data on your instruction. Installing it means you accept them.</p>
+
+<h2>1. What you are getting</h2>
+<p>A licence to use the add-on. Not a transfer of ownership, and not exclusive. You may use
+it for your own stores and for stores you administer on a client's behalf.</p>
+
+<h2>2. Your side of it</h2>
+<ul>
+<li>You are responsible for the Shopify credentials you connect and for keeping them to yourself.</li>
+<li>You are responsible for what you push. Storesheet writes what your spreadsheet says. Use
+<strong>Preview changes</strong> before a large push, and keep the undo record until you are satisfied.</li>
+<li>You will not use the add-on to break Shopify's or Google's terms, or any law that applies to you.</li>
+<li>You will not resell, sublicense or repackage the add-on itself.</li>
+</ul>
+
+<h2>3. Plans and payment</h2>
+<div class="plans">
+  <div class="plan">
+    <p class="tier">Free</p>
+    <p class="amt">$0</p>
+    <p class="yearly">forever</p>
+    <ul>
+      <li>200 rows per push</li>
+      <li>1 store</li>
+      <li>No card, no expiry</li>
+    </ul>
+  </div>
+  <div class="plan lead">
+    <p class="tier">Pro</p>
+    <p class="amt">$9 <span>/ mo</span></p>
+    <p class="yearly">or $79 / year — save 27%</p>
+    <ul>
+      <li>5,000 rows per push</li>
+      <li>3 stores</li>
+      <li>Email support</li>
+    </ul>
+  </div>
+  <div class="plan">
+    <p class="tier">Agency</p>
+    <p class="amt">$29 <span>/ mo</span></p>
+    <p class="yearly">or $249 / year — save 28%</p>
+    <ul>
+      <li>No row limit</li>
+      <li>Unlimited stores</li>
+      <li>Priority support</li>
+    </ul>
+  </div>
+</div>
+<p>Paid plans are billed through Lemon Squeezy, which acts as merchant of record and handles tax.
+Prices are in US dollars. You may cancel at any time; the plan runs to the end of the period
+you have paid for and then stops.</p>
+
+<h2>4. Refunds</h2>
+<p>If Storesheet does not do what this site says it does, write within 30 days of your
+payment and you get your money back. There is no form to fill in.</p>
+
+<h2>5. Availability, and what can break it</h2>
+<p>Storesheet depends on Google Apps Script and on the Shopify Admin API. Both are operated
+by other companies and can change, rate-limit or go down. Shopify issues a new API version
+every three months and supports each one for at least twelve. Storesheet is maintained to
+stay inside that window, but an outage or a breaking change on either side is outside our
+control.</p>
+
+<h2>6. No warranty</h2>
+<p>The add-on is provided "as is". It is tested, it verifies its own writes, and it keeps an
+undo record — but no software is free of defects, and none of that guarantees a particular
+result.</p>
+
+<h2>7. Limitation of liability</h2>
+<p>To the extent the law allows, liability for any claim arising from your use of Storesheet
+is limited to the amount you paid for it in the twelve months before the claim. There is no
+liability for indirect or consequential loss, including lost sales or lost profit. Nothing
+here excludes liability that cannot lawfully be excluded.</p>
+
+<h2>8. Suspension</h2>
+<p>Access may be suspended for non-payment, or for use that damages the service or another
+user. Where circumstances allow, you get notice first.</p>
+
+<h2>9. Changes to these terms</h2>
+<p>These terms may change. The date at the top changes with them, and material changes are
+announced on this page before they take effect. Continuing to use the add-on after that
+means you accept the new version.</p>
+
+<h2>10. Governing law</h2>
+<p>These terms are governed by the laws of Vietnam. This does not remove any consumer
+protection you have in the country where you live.</p>
+
+<h2>11. Contact</h2>
+<p><a href="mailto:hoangvhuan@gmail.com">hoangvhuan@gmail.com</a></p>
+
+</div></main>
+
+<footer><div class="wrap">
+<p>Google Sheets is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
+Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
+</div></footer>
+
+</div></main>
+<footer><div class="wrap">
+  <div class="links">
+    <a href="index.html">Storesheet</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+    <a href="staff-access-shopify.html">Guides</a>
+  </div>
+  <p>Google Sheets™ is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
+  Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
+</div></footer>
+</body>
+</html>
