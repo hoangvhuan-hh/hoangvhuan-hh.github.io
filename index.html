@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Storesheet — bulk edit Shopify in Google Sheets</title>
+<title>HH AI Company</title>
 <meta name="description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
-<link rel="canonical" href="https://hhaico.com/storesheet/">
+<link rel="canonical" href="https://hhaico.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="HH AI Company">
-<meta property="og:title" content="Storesheet — bulk edit Shopify in Google Sheets">
+<meta property="og:title" content="HH AI Company">
 <meta property="og:description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
-<meta property="og:url" content="https://hhaico.com/storesheet/">
+<meta property="og:url" content="https://hhaico.com/">
 <meta name="twitter:card" content="summary">
 <link rel="icon" href="icon-32.png" sizes="32x32">
 <link rel="icon" href="icon-128.png" sizes="128x128">
@@ -169,167 +169,64 @@
     </svg>
   </div>
   <span class="wordmark">Storesheet</span>
-  <span class="kind">PRODUCT</span>
+  <span class="kind">COMPANY</span>
 </div></div>
 
 <main><div class="wrap">
-<main><div class="wrap">
+<h1>HH AI Company</h1>
 
-<h1>Bulk edit your Shopify catalog in a spreadsheet</h1>
+<p class="lede">Small, sharply-scoped software tools. Built by one person, kept alive
+for as long as anyone is using them.</p>
 
-<p class="lede">Pull products into a Google Sheet. Change prices, SKUs, tags and metafields
-the way you change anything else in a spreadsheet. Push back — and have every row checked
-against your store afterwards.</p>
+<h2>Tools</h2>
 
-<p>Shopify's admin makes you edit one product at a time. CSV export and re-import makes you
-edit blind, then tells you nothing until it fails. Storesheet puts the catalog where
-fill-down, find-and-replace and formulas already work, and keeps a record of what it wrote.</p>
-
-<h2>How it works</h2>
-<ol class="steps">
-<li><strong>Pull.</strong> Products and variants land in a sheet called <code>Catalog</code>,
-    and a hidden snapshot records what the store looked like at that moment.</li>
-<li><strong>Edit.</strong> Paste a supplier column, run a formula, find and replace across
-    three thousand rows.</li>
-<li><strong>Preview.</strong> Storesheet compares the sheet against the snapshot and shows
-    exactly which cells it is about to write, and the value each one replaces. Nothing has
-    been sent yet.</li>
-<li><strong>Push.</strong> Only changed cells are written. Old values are recorded first.</li>
-<li><strong>Verify.</strong> The affected products are read back from Shopify and compared to
-    what you asked for. Each row gets a timestamp if it matched, or the exact mismatch if it
-    did not.</li>
-</ol>
-
-<h2>Why this one</h2>
-
-<h3>The person editing does not need a Shopify account</h3>
-<p>Your store credentials live in your Google account, never inside the spreadsheet file.
-Share the sheet with a supplier, a translator, a VA or a seasonal hire — they can edit rows
-and still cannot reach your admin. Sharing a spreadsheet is not sharing your store.</p>
-
-<h3>Your catalog never touches our servers, because we do not have any</h3>
-<p>Storesheet runs inside Google Apps Script, in your own Google account, and talks to
-Shopify directly. There is no middleman database holding your products, prices or costs.</p>
-
-<h3>Push, then verify — not push and hope</h3>
-<p>Writing to an API returns "OK" far more often than the data is actually correct.
-Storesheet re-reads every product it touched and compares field by field, so a silent
-failure shows up in the sheet instead of on your storefront.</p>
-
-<h3>Three permissions, on purpose</h3>
-<p>The current spreadsheet only, outbound requests, and the sidebar. Storesheet cannot see
-your other files in Drive. Read the permission screen — that is the whole list.</p>
-
-<h2>What you can edit</h2>
 <div class="sheet"><table>
-<thead><tr><th scope="col">level</th><th scope="col">columns</th></tr></thead>
+<thead><tr><th scope="col">tool</th><th scope="col">what it does</th><th scope="col">where</th></tr></thead>
 <tbody>
-<tr><th scope="row">product</th><td>title, status (ACTIVE / DRAFT / ARCHIVED), vendor, product_type, tags</td></tr>
-<tr><th scope="row">variant</th><td>sku, barcode, price, compare_at_price</td></tr>
-<tr><th scope="row">metafield</th><td>add a column named <code>mf:namespace.key</code> — it reads and writes that metafield and remembers its type</td></tr>
+<tr><th scope="row"><a href="storesheet/">Storesheet</a></th>
+    <td>Bulk edit a Shopify catalog inside a Google Sheet, with every write verified
+        against the store afterwards and one-click undo</td>
+    <td>Google Workspace Marketplace</td></tr>
 </tbody>
 </table></div>
 
-<h2>Jobs people use it for</h2>
-<ul>
-<li>Run a sale across 3,000 products, then put every price back afterwards.</li>
-<li>Apply a supplier price list as a column of formulas.</li>
-<li>Fix a SKU scheme that three different people built three different ways.</li>
-<li>Hand title and tag translation to someone who must not have admin access.</li>
-<li>Fill in Google Shopping metafields before a feed goes out.</li>
-<li>Clean up vendor and product-type values that drifted over two years.</li>
-</ul>
-
-<h2 id="pricing">Pricing</h2>
-<div class="plans">
-  <div class="plan">
-    <p class="tier">Free</p>
-    <p class="amt">$0</p>
-    <p class="yearly">forever</p>
-    <ul>
-      <li>Up to 200 products</li>
-      <li>Every feature, no limits within that</li>
-      <li>1 store · no card, no expiry</li>
-    </ul>
-  </div>
-  <div class="plan lead">
-    <p class="tier">Pro</p>
-    <p class="amt">$9 <span>/ mo</span></p>
-    <p class="yearly">or $79 / year — save 27%</p>
-    <ul>
-      <li>Up to 5,000 products</li>
-      <li>3 stores</li>
-      <li>Email support</li>
-    </ul>
-  </div>
-  <div class="plan">
-    <p class="tier">Agency</p>
-    <p class="amt">$29 <span>/ mo</span></p>
-    <p class="yearly">or $249 / year — save 28%</p>
-    <ul>
-      <li>No product limit</li>
-      <li>Unlimited stores</li>
-      <li>Priority support</li>
-    </ul>
-  </div>
-</div>
-<p><strong>If your store has 200 products or fewer, the free plan is the whole product.</strong>
-Not a trial, not a preview, no countdown — every feature, unlimited pushes, forever. We
-would rather a small shop use this properly for free than pay $9 for something they only
-half-need.</p>
-
-<p>The limit is a size boundary, not a speed bump: above 200 products, the sheet holds the
-first 200 and the rest of your catalog is not pulled in. That is the honest line, because
-the work of managing a 3,000-product catalog is a genuinely different job from managing
-150 — and it is the job worth paying for.</p>
-
-<p>Agency exists because one person often runs a dozen storefronts for clients, and
-charging per store punishes exactly the people the spreadsheet workflow is built for.</p>
-
 <h2>Guides</h2>
+
+<p>Things we had to work out while building, written up in case they save someone else
+the afternoon:</p>
+
 <ul>
-<li><a href="staff-access-shopify.html">Your Shopify plan gives you zero staff accounts.
-    Now what?</a> — every way to let someone else edit your products, and what each one
-    really costs.</li>
-<li><a href="shopify-custom-app-2026.html">Shopify stopped letting you create custom apps.
-    Here is what replaced it</a> — the Dev Dashboard flow, step by step.</li>
+<li><a href="storesheet/staff-access-shopify.html">Your Shopify plan gives you zero staff
+    accounts. Now what?</a></li>
+<li><a href="storesheet/shopify-custom-app-2026.html">Shopify stopped letting you create
+    custom apps. Here is what replaced it</a></li>
 </ul>
 
-<h2>Setup</h2>
-<p>You create a Shopify app inside your own store and paste its Client ID and Client secret
-into the sidebar. Storesheet exchanges them for a 24-hour access token and refreshes it when
-it expires. No redirect, no callback, no account to create with us. Step-by-step instructions
-are on the <a href="support.html">support
-page</a>.</p>
+<h2>How these are built</h2>
 
-<h2>What it does not do yet</h2>
-<div class="note">
-<p>Worth knowing before you install. Inventory quantity is read-only in this version. New
-products cannot be created from blank rows. Images, collections, orders and customers are out
-of scope. Products with more than 100 variants are pulled up to the first 100 and flagged.
-There is no scheduled sync — a push happens when you click push.</p>
-</div>
+<p>Each tool does one job for one kind of person, and says plainly what it does not do.
+None of them run a server that holds your data: where a tool needs access to something
+you own, it talks to that service directly from your own account, and the credentials
+stay with you.</p>
 
-</div></main>
+<p>Every tool has a free tier that does real work — not a countdown, not a crippled
+demo — because the only honest way to find out whether something is worth paying for
+is to use it on your own data first.</p>
 
-<footer><div class="wrap">
-<div class="links">
-  <a href="support.html">Support</a>
-  <a href="privacy.html">Privacy policy</a>
-  <a href="terms.html">Terms of service</a>
-</div>
-<p>Google Sheets is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
-Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
-</div></footer>
+<h2>Contact</h2>
+
+<p>Support, questions, bug reports and refund requests all go to one place:
+<a href="mailto:hoangvhuan@gmail.com">hoangvhuan@gmail.com</a>. It is read by the
+person who wrote the code.</p>
 
 </div></main>
 <footer><div class="wrap">
   <div class="links">
-    <a href="index.html">Storesheet</a>
-    <a href="privacy.html">Privacy</a>
-    <a href="terms.html">Terms</a>
-    <a href="support.html">Support</a>
-    <a href="staff-access-shopify.html">Guides</a>
+    <a href="storesheet/">Storesheet</a>
+    <a href="storesheet/privacy.html">Privacy</a>
+    <a href="storesheet/terms.html">Terms</a>
+    <a href="storesheet/support.html">Support</a>
+    <a href="storesheet/staff-access-shopify.html">Guides</a>
   </div>
   <p>Google Sheets™ is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
   Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
