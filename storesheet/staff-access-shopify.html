@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shopify gives Basic 0 staff accounts — the options</title>
+<meta name="description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<link rel="canonical" href="https://hhaico.com/storesheet/staff-access-shopify.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HH AI Company">
+<meta property="og:title" content="Shopify gives Basic 0 staff accounts — the options">
+<meta property="og:description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<meta property="og:url" content="https://hhaico.com/storesheet/staff-access-shopify.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="icon-32.png" sizes="32x32">
+<link rel="icon" href="icon-128.png" sizes="128x128">
+<style>
+  *{box-sizing:border-box}
+  html{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root{
+    --ground:#fbfcfb;
+    --surface:#ffffff;
+    --ink:#12312f;
+    --body:#33474a;
+    --muted:#6d8285;
+    --rule:#dbe4e2;
+    --grid:#e9efee;
+    --accent:#0d5c66;
+    --accent-soft:#e6f0f1;
+    --signal:#b3701a;
+    --shadow:0 1px 2px rgba(18,49,47,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0e1a1c;
+      --surface:#132427;
+      --ink:#e8f2f0;
+      --body:#c2d4d4;
+      --muted:#8fa8ab;
+      --rule:#22383b;
+      --grid:#1b2f32;
+      --accent:#5cbcc6;
+      --accent-soft:#12292d;
+      --signal:#dda551;
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0e1a1c;
+    --surface:#132427;
+    --ink:#e8f2f0;
+    --body:#c2d4d4;
+    --muted:#8fa8ab;
+    --rule:#22383b;
+    --grid:#1b2f32;
+    --accent:#5cbcc6;
+    --accent-soft:#12292d;
+    --signal:#dda551;
+    --shadow:none;
+  }
+
+  body{
+    background:var(--ground);
+    color:var(--body);
+    font:400 17px/1.65 "Source Serif 4", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:41rem;margin:0 auto;padding:0 1.5rem}
+
+  /* ---- mast ---- */
+  .mast{border-bottom:1px solid var(--rule);background:var(--surface)}
+  .mast .wrap{display:flex;align-items:center;gap:.7rem;padding-top:1rem;padding-bottom:1rem}
+  .mark{width:30px;height:30px;flex:none;border-radius:7px;background:var(--accent);
+        display:grid;place-items:center}
+  .mark svg{display:block}
+  .wordmark{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.05rem;
+            letter-spacing:-.01em;color:var(--ink)}
+  .mast .kind{margin-left:auto;font-family:"IBM Plex Mono",ui-monospace,monospace;
+              font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  main{padding:3rem 0 4.5rem}
+
+  h1{font-family:Archivo,system-ui,sans-serif;font-weight:700;color:var(--ink);
+     font-size:2.3rem;line-height:1.14;letter-spacing:-.025em;margin:0 0 1rem;text-wrap:balance}
+  h2{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.28rem;line-height:1.3;letter-spacing:-.012em;margin:2.9rem 0 .7rem;text-wrap:balance}
+  h3{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.02rem;margin:1.6rem 0 .35rem}
+  p{margin:0 0 1.05rem}
+  .lede{font-size:1.16rem;line-height:1.6;color:var(--ink)}
+  .stamp{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+         letter-spacing:.06em;color:var(--muted);margin:0 0 2.2rem}
+  ul,ol{margin:0 0 1.05rem;padding-left:1.3rem}
+  li{margin-bottom:.45rem}
+  a{color:var(--accent);text-underline-offset:.16em}
+  a:hover{text-decoration:none}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  strong{color:var(--ink);font-weight:600}
+  code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86em;
+       background:var(--accent-soft);color:var(--ink);padding:.1em .38em;border-radius:3px}
+
+  /* ---- spreadsheet-grid table: the one device borrowed from the subject ---- */
+  .sheet{overflow-x:auto;margin:0 0 1.4rem;border:1px solid var(--rule);border-radius:4px;
+         background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:.94rem;
+        font-variant-numeric:tabular-nums}
+  th,td{text-align:left;padding:.62rem .8rem;border-bottom:1px solid var(--grid);
+        border-right:1px solid var(--grid);vertical-align:top}
+  th:last-child,td:last-child{border-right:none}
+  tr:last-child td{border-bottom:none}
+  thead th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;
+           font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+           color:var(--muted);background:var(--accent-soft);border-bottom:1px solid var(--rule)}
+  tbody th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;
+           font-size:.86rem;color:var(--ink);white-space:nowrap}
+
+  .note{border-left:3px solid var(--signal);background:var(--surface);
+        padding:.95rem 1.15rem;margin:0 0 1.4rem;border-radius:0 4px 4px 0;font-size:.98rem}
+  .note p:last-child{margin-bottom:0}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:0 0 1.2rem;align-items:start}
+  .plan{border:1px solid var(--rule);border-radius:5px;padding:1.1rem 1.15rem;background:var(--surface);
+        display:flex;flex-direction:column;gap:.55rem}
+  .plan.lead{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .plan .tier{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;
+              letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0}
+  .plan.lead .tier{color:var(--accent)}
+  .plan .amt{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.75rem;
+             color:var(--ink);letter-spacing:-.02em;line-height:1;margin:0}
+  .plan .amt span{font-family:"Source Serif 4",serif;font-weight:400;font-size:.85rem;color:var(--muted)}
+  .plan .yearly{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+                color:var(--signal);margin:0;letter-spacing:.01em}
+  .plan ul{margin:0;padding-left:1.05rem;font-size:.93rem}
+  .plan li{margin-bottom:.28rem}
+  .plan p{margin:0;font-size:.93rem}
+
+  .steps{counter-reset:s;list-style:none;padding:0}
+  .steps li{counter-increment:s;position:relative;padding-left:2.3rem;margin-bottom:.85rem}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:.18em;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;color:var(--accent);
+    border:1px solid var(--rule);border-radius:3px;width:1.5rem;height:1.5rem;
+    display:grid;place-items:center;background:var(--surface)}
+
+  footer{border-top:1px solid var(--rule);padding:1.6rem 0 3rem;font-size:.85rem;color:var(--muted)}
+  footer p{margin:0 0 .5rem}
+  footer .links{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:.9rem}
+
+  @media (max-width:34rem){
+    h1{font-size:1.8rem}
+    .plans{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="mast"><div class="wrap">
+  <div class="mark" aria-hidden="true">
+    <svg width="17" height="17" viewBox="0 0 100 100">
+      <rect x="18" y="26" width="40" height="11" rx="5.5" fill="#fff"/>
+      <rect x="18" y="44.5" width="42" height="11" rx="5.5" fill="#f2a93b"/>
+      <polygon points="63,44 78,50 63,56" fill="#f2a93b"/>
+      <rect x="18" y="63" width="40" height="11" rx="5.5" fill="#fff"/>
+    </svg>
+  </div>
+  <span class="wordmark">Storesheet</span>
+  <span class="kind">GUIDE</span>
+</div></div>
+
+<main><div class="wrap">
+<h1>Your Shopify plan gives you zero staff accounts. Now what?</h1>
+
+<p class="lede">You are on Basic, you have a few hundred products that need fixing, and you
+want to hand that work to someone else. Shopify's Basic plan allows
+<strong>0 staff users</strong>. These are the options that actually exist, and what each
+one really costs you.</p>
+
+<p>This trips people up because "add staff" is visible in the admin, so it looks available
+until you try. The limit is a plan feature, not a bug:</p>
+
+<div class="sheet"><table>
+<thead><tr><th scope="col">plan</th><th scope="col">staff users allowed</th></tr></thead>
+<tbody>
+<tr><th scope="row">Basic</th><td>0</td></tr>
+<tr><th scope="row">Grow</th><td>5</td></tr>
+<tr><th scope="row">Advanced</th><td>15</td></tr>
+<tr><th scope="row">Plus</th><td>unlimited</td></tr>
+</tbody>
+</table></div>
+
+<p>Collaborator accounts are the exception — they do not count toward the limit, on any
+plan. That matters, and we come back to it below.</p>
+
+<h2>Option 1 — Move up to Grow</h2>
+
+<p>The direct fix. You get five staff users and full granular permissions: you really can
+give someone <em>Products → Create and edit</em> and nothing else, so they never see an
+order or a customer record.</p>
+
+<p>Worth it if you need someone in the admin continuously. Expensive if what you actually
+need is one person for two weeks to clean up product titles — you are paying a monthly
+platform upgrade for a temporary job.</p>
+
+<h2>Option 2 — A collaborator account</h2>
+
+<p>Collaborator accounts do not count against your staff limit, and they support the same
+granular permissions. This is the option most merchants miss.</p>
+
+<p>The catch: collaborator accounts are designed for Shopify Partners — agencies,
+developers, freelancers who have registered a Partner account. Your supplier or a
+short-term data-entry hire generally is not one, and asking them to become one to fix
+some SKUs is a strange request.</p>
+
+<h2>Option 3 — Share your own login</h2>
+
+<p>Do not. It hands over your payouts, your customer records, your app installs and your
+ability to change the password. There is no audit trail: everything they do is recorded as
+you. If the relationship ends badly you have no clean way to revoke access other than
+changing the password and hoping nothing else was set up in the meantime.</p>
+
+<p>It is worth being blunt because this is what a lot of people quietly do when the first
+two options do not fit.</p>
+
+<h2>Option 4 — CSV export and import</h2>
+
+<p>Export the products, send the file, get it back, import it. No account needed for the
+person doing the work, which is why Shopify's own support recommends it.</p>
+
+<p>What it costs you: you are editing blind. A CSV import tells you nothing until it runs,
+and when it fails it fails per-row with messages that are hard to trace back to what you
+typed. There is no preview of what will change and no undo — if the file was wrong, the
+fix is another import that you also cannot preview. On a few hundred rows that is a bad
+afternoon. On a few thousand it is worse.</p>
+
+<h2>Option 5 — Work in a spreadsheet, keep the store to yourself</h2>
+
+<p>The shape of the problem is that <strong>editing product data and having access to a
+store are two different things</strong>, and Shopify's admin ties them together because
+that is where the editing happens.</p>
+
+<p>If the editing happens somewhere else — a spreadsheet — they come apart. The person
+doing the work needs access to a spreadsheet, not to your store. You keep the store
+credentials, you review what changed before anything is written, and you can put it all
+back if it was wrong.</p>
+
+<p>That is what <a href="index.html">Storesheet</a> does: it pulls your catalog into a
+Google Sheet, your credentials stay attached to <em>your</em> Google account rather than
+inside the file, and you can share that file with anyone. They fill down, find and
+replace, paste a column from a supplier's price list. When you push, you see exactly which
+cells will change before anything is sent, every write is read back from Shopify and
+checked, and one click puts the old values back.</p>
+
+<p>It has a free tier that writes 200 rows per push, which is enough to do a real job
+before deciding anything.</p>
+
+<h2>Choosing between them</h2>
+
+<div class="sheet"><table>
+<thead><tr>
+  <th scope="col">if</th><th scope="col">use</th>
+</tr></thead>
+<tbody>
+<tr><th scope="row">Someone needs to be in the admin every day</th>
+    <td>Grow plan, granular permissions</td></tr>
+<tr><th scope="row">Your helper is an agency or developer</th>
+    <td>Collaborator account — free, no seat used</td></tr>
+<tr><th scope="row">One-off cleanup, helper is not a Partner</th>
+    <td>Spreadsheet, or CSV if the job is small and simple</td></tr>
+<tr><th scope="row">Thousands of rows, or you want to check before writing</th>
+    <td>Spreadsheet with preview and undo</td></tr>
+<tr><th scope="row">Any situation at all</th>
+    <td>Not your own login</td></tr>
+</tbody>
+</table></div>
+
+<p class="stamp">Staff limits per plan are documented by Shopify in
+"Maximum number of users for each pricing plan". Plan names and limits change; check the
+current page before making a decision that costs money.</p>
+
+</div></main>
+<footer><div class="wrap">
+  <div class="links">
+    <a href="index.html">Storesheet</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+    <a href="staff-access-shopify.html">Guides</a>
+  </div>
+  <p>Google Sheets™ is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
+  Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
+</div></footer>
+</body>
+</html>

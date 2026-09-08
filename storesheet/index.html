@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Storesheet — bulk edit Shopify in Google Sheets</title>
+<meta name="description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<link rel="canonical" href="https://hhaico.com/storesheet/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HH AI Company">
+<meta property="og:title" content="Storesheet — bulk edit Shopify in Google Sheets">
+<meta property="og:description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<meta property="og:url" content="https://hhaico.com/storesheet/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="icon-32.png" sizes="32x32">
+<link rel="icon" href="icon-128.png" sizes="128x128">
+<style>
+  *{box-sizing:border-box}
+  html{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root{
+    --ground:#fbfcfb;
+    --surface:#ffffff;
+    --ink:#12312f;
+    --body:#33474a;
+    --muted:#6d8285;
+    --rule:#dbe4e2;
+    --grid:#e9efee;
+    --accent:#0d5c66;
+    --accent-soft:#e6f0f1;
+    --signal:#b3701a;
+    --shadow:0 1px 2px rgba(18,49,47,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0e1a1c;
+      --surface:#132427;
+      --ink:#e8f2f0;
+      --body:#c2d4d4;
+      --muted:#8fa8ab;
+      --rule:#22383b;
+      --grid:#1b2f32;
+      --accent:#5cbcc6;
+      --accent-soft:#12292d;
+      --signal:#dda551;
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0e1a1c;
+    --surface:#132427;
+    --ink:#e8f2f0;
+    --body:#c2d4d4;
+    --muted:#8fa8ab;
+    --rule:#22383b;
+    --grid:#1b2f32;
+    --accent:#5cbcc6;
+    --accent-soft:#12292d;
+    --signal:#dda551;
+    --shadow:none;
+  }
+
+  body{
+    background:var(--ground);
+    color:var(--body);
+    font:400 17px/1.65 "Source Serif 4", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:41rem;margin:0 auto;padding:0 1.5rem}
+
+  /* ---- mast ---- */
+  .mast{border-bottom:1px solid var(--rule);background:var(--surface)}
+  .mast .wrap{display:flex;align-items:center;gap:.7rem;padding-top:1rem;padding-bottom:1rem}
+  .mark{width:30px;height:30px;flex:none;border-radius:7px;background:var(--accent);
+        display:grid;place-items:center}
+  .mark svg{display:block}
+  .wordmark{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.05rem;
+            letter-spacing:-.01em;color:var(--ink)}
+  .mast .kind{margin-left:auto;font-family:"IBM Plex Mono",ui-monospace,monospace;
+              font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  main{padding:3rem 0 4.5rem}
+
+  h1{font-family:Archivo,system-ui,sans-serif;font-weight:700;color:var(--ink);
+     font-size:2.3rem;line-height:1.14;letter-spacing:-.025em;margin:0 0 1rem;text-wrap:balance}
+  h2{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.28rem;line-height:1.3;letter-spacing:-.012em;margin:2.9rem 0 .7rem;text-wrap:balance}
+  h3{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.02rem;margin:1.6rem 0 .35rem}
+  p{margin:0 0 1.05rem}
+  .lede{font-size:1.16rem;line-height:1.6;color:var(--ink)}
+  .stamp{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+         letter-spacing:.06em;color:var(--muted);margin:0 0 2.2rem}
+  ul,ol{margin:0 0 1.05rem;padding-left:1.3rem}
+  li{margin-bottom:.45rem}
+  a{color:var(--accent);text-underline-offset:.16em}
+  a:hover{text-decoration:none}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  strong{color:var(--ink);font-weight:600}
+  code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86em;
+       background:var(--accent-soft);color:var(--ink);padding:.1em .38em;border-radius:3px}
+
+  /* ---- spreadsheet-grid table: the one device borrowed from the subject ---- */
+  .sheet{overflow-x:auto;margin:0 0 1.4rem;border:1px solid var(--rule);border-radius:4px;
+         background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:.94rem;
+        font-variant-numeric:tabular-nums}
+  th,td{text-align:left;padding:.62rem .8rem;border-bottom:1px solid var(--grid);
+        border-right:1px solid var(--grid);vertical-align:top}
+  th:last-child,td:last-child{border-right:none}
+  tr:last-child td{border-bottom:none}
+  thead th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;
+           font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+           color:var(--muted);background:var(--accent-soft);border-bottom:1px solid var(--rule)}
+  tbody th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;
+           font-size:.86rem;color:var(--ink);white-space:nowrap}
+
+  .note{border-left:3px solid var(--signal);background:var(--surface);
+        padding:.95rem 1.15rem;margin:0 0 1.4rem;border-radius:0 4px 4px 0;font-size:.98rem}
+  .note p:last-child{margin-bottom:0}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:0 0 1.2rem;align-items:start}
+  .plan{border:1px solid var(--rule);border-radius:5px;padding:1.1rem 1.15rem;background:var(--surface);
+        display:flex;flex-direction:column;gap:.55rem}
+  .plan.lead{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .plan .tier{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;
+              letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0}
+  .plan.lead .tier{color:var(--accent)}
+  .plan .amt{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.75rem;
+             color:var(--ink);letter-spacing:-.02em;line-height:1;margin:0}
+  .plan .amt span{font-family:"Source Serif 4",serif;font-weight:400;font-size:.85rem;color:var(--muted)}
+  .plan .yearly{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+                color:var(--signal);margin:0;letter-spacing:.01em}
+  .plan ul{margin:0;padding-left:1.05rem;font-size:.93rem}
+  .plan li{margin-bottom:.28rem}
+  .plan p{margin:0;font-size:.93rem}
+
+  .steps{counter-reset:s;list-style:none;padding:0}
+  .steps li{counter-increment:s;position:relative;padding-left:2.3rem;margin-bottom:.85rem}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:.18em;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;color:var(--accent);
+    border:1px solid var(--rule);border-radius:3px;width:1.5rem;height:1.5rem;
+    display:grid;place-items:center;background:var(--surface)}
+
+  footer{border-top:1px solid var(--rule);padding:1.6rem 0 3rem;font-size:.85rem;color:var(--muted)}
+  footer p{margin:0 0 .5rem}
+  footer .links{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:.9rem}
+
+  @media (max-width:34rem){
+    h1{font-size:1.8rem}
+    .plans{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="mast"><div class="wrap">
+  <div class="mark" aria-hidden="true">
+    <svg width="17" height="17" viewBox="0 0 100 100">
+      <rect x="18" y="26" width="40" height="11" rx="5.5" fill="#fff"/>
+      <rect x="18" y="44.5" width="42" height="11" rx="5.5" fill="#f2a93b"/>
+      <polygon points="63,44 78,50 63,56" fill="#f2a93b"/>
+      <rect x="18" y="63" width="40" height="11" rx="5.5" fill="#fff"/>
+    </svg>
+  </div>
+  <span class="wordmark">Storesheet</span>
+  <span class="kind">PRODUCT</span>
+</div></div>
+
+<main><div class="wrap">
+<main><div class="wrap">
+
+<h1>Bulk edit your Shopify catalog in a spreadsheet</h1>
+
+<p class="lede">Pull products into a Google Sheet. Change prices, SKUs, tags and metafields
+the way you change anything else in a spreadsheet. Push back — and have every row checked
+against your store afterwards.</p>
+
+<p>Shopify's admin makes you edit one product at a time. CSV export and re-import makes you
+edit blind, then tells you nothing until it fails. Storesheet puts the catalog where
+fill-down, find-and-replace and formulas already work, and keeps a record of what it wrote.</p>
+
+<h2>How it works</h2>
+<ol class="steps">
+<li><strong>Pull.</strong> Products and variants land in a sheet called <code>Catalog</code>,
+    and a hidden snapshot records what the store looked like at that moment.</li>
+<li><strong>Edit.</strong> Paste a supplier column, run a formula, find and replace across
+    three thousand rows.</li>
+<li><strong>Preview.</strong> Storesheet compares the sheet against the snapshot and shows
+    exactly which cells it is about to write, and the value each one replaces. Nothing has
+    been sent yet.</li>
+<li><strong>Push.</strong> Only changed cells are written. Old values are recorded first.</li>
+<li><strong>Verify.</strong> The affected products are read back from Shopify and compared to
+    what you asked for. Each row gets a timestamp if it matched, or the exact mismatch if it
+    did not.</li>
+</ol>
+
+<h2>Why this one</h2>
+
+<h3>The person editing does not need a Shopify account</h3>
+<p>Your store credentials live in your Google account, never inside the spreadsheet file.
+Share the sheet with a supplier, a translator, a VA or a seasonal hire — they can edit rows
+and still cannot reach your admin. Sharing a spreadsheet is not sharing your store.</p>
+
+<h3>Your catalog never touches our servers, because we do not have any</h3>
+<p>Storesheet runs inside Google Apps Script, in your own Google account, and talks to
+Shopify directly. There is no middleman database holding your products, prices or costs.</p>
+
+<h3>Push, then verify — not push and hope</h3>
+<p>Writing to an API returns "OK" far more often than the data is actually correct.
+Storesheet re-reads every product it touched and compares field by field, so a silent
+failure shows up in the sheet instead of on your storefront.</p>
+
+<h3>Three permissions, on purpose</h3>
+<p>The current spreadsheet only, outbound requests, and the sidebar. Storesheet cannot see
+your other files in Drive. Read the permission screen — that is the whole list.</p>
+
+<h2>What you can edit</h2>
+<div class="sheet"><table>
+<thead><tr><th scope="col">level</th><th scope="col">columns</th></tr></thead>
+<tbody>
+<tr><th scope="row">product</th><td>title, status (ACTIVE / DRAFT / ARCHIVED), vendor, product_type, tags</td></tr>
+<tr><th scope="row">variant</th><td>sku, barcode, price, compare_at_price</td></tr>
+<tr><th scope="row">metafield</th><td>add a column named <code>mf:namespace.key</code> — it reads and writes that metafield and remembers its type</td></tr>
+</tbody>
+</table></div>
+
+<h2>Jobs people use it for</h2>
+<ul>
+<li>Run a sale across 3,000 products, then put every price back afterwards.</li>
+<li>Apply a supplier price list as a column of formulas.</li>
+<li>Fix a SKU scheme that three different people built three different ways.</li>
+<li>Hand title and tag translation to someone who must not have admin access.</li>
+<li>Fill in Google Shopping metafields before a feed goes out.</li>
+<li>Clean up vendor and product-type values that drifted over two years.</li>
+</ul>
+
+<h2 id="pricing">Pricing</h2>
+<div class="plans">
+  <div class="plan">
+    <p class="tier">Free</p>
+    <p class="amt">$0</p>
+    <p class="yearly">forever</p>
+    <ul>
+      <li>Up to 200 products</li>
+      <li>Every feature, no limits within that</li>
+      <li>1 store · no card, no expiry</li>
+    </ul>
+  </div>
+  <div class="plan lead">
+    <p class="tier">Pro</p>
+    <p class="amt">$9 <span>/ mo</span></p>
+    <p class="yearly">or $79 / year — save 27%</p>
+    <ul>
+      <li>Up to 5,000 products</li>
+      <li>3 stores</li>
+      <li>Email support</li>
+    </ul>
+  </div>
+  <div class="plan">
+    <p class="tier">Agency</p>
+    <p class="amt">$29 <span>/ mo</span></p>
+    <p class="yearly">or $249 / year — save 28%</p>
+    <ul>
+      <li>No product limit</li>
+      <li>Unlimited stores</li>
+      <li>Priority support</li>
+    </ul>
+  </div>
+</div>
+<p><strong>If your store has 200 products or fewer, the free plan is the whole product.</strong>
+Not a trial, not a preview, no countdown — every feature, unlimited pushes, forever. We
+would rather a small shop use this properly for free than pay $9 for something they only
+half-need.</p>
+
+<p>The limit is a size boundary, not a speed bump: above 200 products, the sheet holds the
+first 200 and the rest of your catalog is not pulled in. That is the honest line, because
+the work of managing a 3,000-product catalog is a genuinely different job from managing
+150 — and it is the job worth paying for.</p>
+
+<p>Agency exists because one person often runs a dozen storefronts for clients, and
+charging per store punishes exactly the people the spreadsheet workflow is built for.</p>
+
+<h2>Guides</h2>
+<ul>
+<li><a href="staff-access-shopify.html">Your Shopify plan gives you zero staff accounts.
+    Now what?</a> — every way to let someone else edit your products, and what each one
+    really costs.</li>
+<li><a href="shopify-custom-app-2026.html">Shopify stopped letting you create custom apps.
+    Here is what replaced it</a> — the Dev Dashboard flow, step by step.</li>
+</ul>
+
+<h2>Setup</h2>
+<p>You create a Shopify app inside your own store and paste its Client ID and Client secret
+into the sidebar. Storesheet exchanges them for a 24-hour access token and refreshes it when
+it expires. No redirect, no callback, no account to create with us. Step-by-step instructions
+are on the <a href="support.html">support
+page</a>.</p>
+
+<h2>What it does not do yet</h2>
+<div class="note">
+<p>Worth knowing before you install. Inventory quantity is read-only in this version. New
+products cannot be created from blank rows. Images, collections, orders and customers are out
+of scope. Products with more than 100 variants are pulled up to the first 100 and flagged.
+There is no scheduled sync — a push happens when you click push.</p>
+</div>
+
+</div></main>
+
+<footer><div class="wrap">
+<div class="links">
+  <a href="support.html">Support</a>
+  <a href="privacy.html">Privacy policy</a>
+  <a href="terms.html">Terms of service</a>
+</div>
+<p>Google Sheets is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
+Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
+</div></footer>
+
+</div></main>
+<footer><div class="wrap">
+  <div class="links">
+    <a href="index.html">Storesheet</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+    <a href="staff-access-shopify.html">Guides</a>
+  </div>
+  <p>Google Sheets™ is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
+  Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
+</div></footer>
+</body>
+</html>

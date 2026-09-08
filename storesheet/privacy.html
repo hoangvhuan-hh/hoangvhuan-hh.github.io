@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy policy — Storesheet</title>
+<meta name="description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<link rel="canonical" href="https://hhaico.com/storesheet/privacy.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="HH AI Company">
+<meta property="og:title" content="Privacy policy — Storesheet">
+<meta property="og:description" content="Pull your Shopify catalog into a spreadsheet, edit it, push it back. Every change is verified against your store, and one click undoes the batch.">
+<meta property="og:url" content="https://hhaico.com/storesheet/privacy.html">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="icon-32.png" sizes="32x32">
+<link rel="icon" href="icon-128.png" sizes="128x128">
+<style>
+  *{box-sizing:border-box}
+  html{color-scheme:light dark}
+  body{margin:0}
+  img{max-width:100%}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+  :root{
+    --ground:#fbfcfb;
+    --surface:#ffffff;
+    --ink:#12312f;
+    --body:#33474a;
+    --muted:#6d8285;
+    --rule:#dbe4e2;
+    --grid:#e9efee;
+    --accent:#0d5c66;
+    --accent-soft:#e6f0f1;
+    --signal:#b3701a;
+    --shadow:0 1px 2px rgba(18,49,47,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ground:#0e1a1c;
+      --surface:#132427;
+      --ink:#e8f2f0;
+      --body:#c2d4d4;
+      --muted:#8fa8ab;
+      --rule:#22383b;
+      --grid:#1b2f32;
+      --accent:#5cbcc6;
+      --accent-soft:#12292d;
+      --signal:#dda551;
+      --shadow:none;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ground:#0e1a1c;
+    --surface:#132427;
+    --ink:#e8f2f0;
+    --body:#c2d4d4;
+    --muted:#8fa8ab;
+    --rule:#22383b;
+    --grid:#1b2f32;
+    --accent:#5cbcc6;
+    --accent-soft:#12292d;
+    --signal:#dda551;
+    --shadow:none;
+  }
+
+  body{
+    background:var(--ground);
+    color:var(--body);
+    font:400 17px/1.65 "Source Serif 4", Georgia, "Times New Roman", serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:41rem;margin:0 auto;padding:0 1.5rem}
+
+  /* ---- mast ---- */
+  .mast{border-bottom:1px solid var(--rule);background:var(--surface)}
+  .mast .wrap{display:flex;align-items:center;gap:.7rem;padding-top:1rem;padding-bottom:1rem}
+  .mark{width:30px;height:30px;flex:none;border-radius:7px;background:var(--accent);
+        display:grid;place-items:center}
+  .mark svg{display:block}
+  .wordmark{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.05rem;
+            letter-spacing:-.01em;color:var(--ink)}
+  .mast .kind{margin-left:auto;font-family:"IBM Plex Mono",ui-monospace,monospace;
+              font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+  main{padding:3rem 0 4.5rem}
+
+  h1{font-family:Archivo,system-ui,sans-serif;font-weight:700;color:var(--ink);
+     font-size:2.3rem;line-height:1.14;letter-spacing:-.025em;margin:0 0 1rem;text-wrap:balance}
+  h2{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.28rem;line-height:1.3;letter-spacing:-.012em;margin:2.9rem 0 .7rem;text-wrap:balance}
+  h3{font-family:Archivo,system-ui,sans-serif;font-weight:600;color:var(--ink);
+     font-size:1.02rem;margin:1.6rem 0 .35rem}
+  p{margin:0 0 1.05rem}
+  .lede{font-size:1.16rem;line-height:1.6;color:var(--ink)}
+  .stamp{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+         letter-spacing:.06em;color:var(--muted);margin:0 0 2.2rem}
+  ul,ol{margin:0 0 1.05rem;padding-left:1.3rem}
+  li{margin-bottom:.45rem}
+  a{color:var(--accent);text-underline-offset:.16em}
+  a:hover{text-decoration:none}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  strong{color:var(--ink);font-weight:600}
+  code{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.86em;
+       background:var(--accent-soft);color:var(--ink);padding:.1em .38em;border-radius:3px}
+
+  /* ---- spreadsheet-grid table: the one device borrowed from the subject ---- */
+  .sheet{overflow-x:auto;margin:0 0 1.4rem;border:1px solid var(--rule);border-radius:4px;
+         background:var(--surface)}
+  table{border-collapse:collapse;width:100%;font-size:.94rem;
+        font-variant-numeric:tabular-nums}
+  th,td{text-align:left;padding:.62rem .8rem;border-bottom:1px solid var(--grid);
+        border-right:1px solid var(--grid);vertical-align:top}
+  th:last-child,td:last-child{border-right:none}
+  tr:last-child td{border-bottom:none}
+  thead th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;
+           font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;
+           color:var(--muted);background:var(--accent-soft);border-bottom:1px solid var(--rule)}
+  tbody th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;
+           font-size:.86rem;color:var(--ink);white-space:nowrap}
+
+  .note{border-left:3px solid var(--signal);background:var(--surface);
+        padding:.95rem 1.15rem;margin:0 0 1.4rem;border-radius:0 4px 4px 0;font-size:.98rem}
+  .note p:last-child{margin-bottom:0}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:0 0 1.2rem;align-items:start}
+  .plan{border:1px solid var(--rule);border-radius:5px;padding:1.1rem 1.15rem;background:var(--surface);
+        display:flex;flex-direction:column;gap:.55rem}
+  .plan.lead{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+  .plan .tier{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;
+              letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0}
+  .plan.lead .tier{color:var(--accent)}
+  .plan .amt{font-family:Archivo,system-ui,sans-serif;font-weight:700;font-size:1.75rem;
+             color:var(--ink);letter-spacing:-.02em;line-height:1;margin:0}
+  .plan .amt span{font-family:"Source Serif 4",serif;font-weight:400;font-size:.85rem;color:var(--muted)}
+  .plan .yearly{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.76rem;
+                color:var(--signal);margin:0;letter-spacing:.01em}
+  .plan ul{margin:0;padding-left:1.05rem;font-size:.93rem}
+  .plan li{margin-bottom:.28rem}
+  .plan p{margin:0;font-size:.93rem}
+
+  .steps{counter-reset:s;list-style:none;padding:0}
+  .steps li{counter-increment:s;position:relative;padding-left:2.3rem;margin-bottom:.85rem}
+  .steps li::before{content:counter(s);position:absolute;left:0;top:.18em;
+    font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.72rem;color:var(--accent);
+    border:1px solid var(--rule);border-radius:3px;width:1.5rem;height:1.5rem;
+    display:grid;place-items:center;background:var(--surface)}
+
+  footer{border-top:1px solid var(--rule);padding:1.6rem 0 3rem;font-size:.85rem;color:var(--muted)}
+  footer p{margin:0 0 .5rem}
+  footer .links{display:flex;gap:1.2rem;flex-wrap:wrap;margin-bottom:.9rem}
+
+  @media (max-width:34rem){
+    h1{font-size:1.8rem}
+    .plans{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="mast"><div class="wrap">
+  <div class="mark" aria-hidden="true">
+    <svg width="17" height="17" viewBox="0 0 100 100">
+      <rect x="18" y="26" width="40" height="11" rx="5.5" fill="#fff"/>
+      <rect x="18" y="44.5" width="42" height="11" rx="5.5" fill="#f2a93b"/>
+      <polygon points="63,44 78,50 63,56" fill="#f2a93b"/>
+      <rect x="18" y="63" width="40" height="11" rx="5.5" fill="#fff"/>
+    </svg>
+  </div>
+  <span class="wordmark">Storesheet</span>
+  <span class="kind">PRIVACY</span>
+</div></div>
+
+<main><div class="wrap">
+<main><div class="wrap">
+
+<h1>Privacy policy</h1>
+<p class="stamp">Last updated 7 September 2026</p>
+
+<p class="lede">Storesheet moves product data between a spreadsheet you own and a Shopify
+store you own. This page says exactly what it touches, and what it never sees.</p>
+
+<div class="note">
+<p><strong>The short version.</strong> Storesheet has no servers and no database. Your
+catalog is never copied to us, because there is nowhere for us to copy it to. The add-on
+runs inside Google Apps Script, in your own Google account, and talks to your Shopify
+store directly.</p>
+</div>
+
+<h2>The three permissions it asks for</h2>
+<div class="sheet"><table>
+<thead><tr><th scope="col">scope</th><th scope="col">what it allows</th></tr></thead>
+<tbody>
+<tr><th scope="row">spreadsheets.currentonly</th>
+    <td>Read and write the one spreadsheet you have open. It cannot list, open or read any
+    other file in your Google Drive.</td></tr>
+<tr><th scope="row">script.external_request</th>
+    <td>Make outbound requests. Used to call the Shopify Admin API of the store you
+    connected, and to check a licence key on the Pro plan.</td></tr>
+<tr><th scope="row">script.container.ui</th>
+    <td>Show the menu item and the sidebar.</td></tr>
+</tbody>
+</table></div>
+
+<p>That is the complete list. Storesheet does not ask for Drive access, Gmail, contacts,
+calendar, or your Google profile.</p>
+
+<h2>What it stores, and where</h2>
+<p>Storesheet stores the connection details for the Shopify stores you add: the store
+address, a label, and either a Client ID and Client secret pair or a legacy access token.
+These are saved through Google's <code>PropertiesService</code>, in storage that belongs to
+<strong>your</strong> Google account. They are not written into the spreadsheet file, which
+is why sharing the spreadsheet does not share access to your store.</p>
+<p>Inside your spreadsheet it also keeps three hidden sheets: a snapshot of the catalog as
+it was last pulled, a record of previous values so a push can be undone, and a job log.
+These are ordinary sheets in your own file. Delete them and they are gone.</p>
+<p>The developer of Storesheet cannot read any of this. There is no administrative console,
+no back end, and no mechanism by which your credentials or catalog reach the developer.</p>
+
+<h2>What it sends, and to whom</h2>
+<div class="sheet"><table>
+<thead><tr><th scope="col">recipient</th><th scope="col">what is sent</th><th scope="col">why</th></tr></thead>
+<tbody>
+<tr><th scope="row">Your Shopify store</th>
+    <td>Product and variant data, and your store credentials</td>
+    <td>To read your catalog and write the changes you asked for</td></tr>
+<tr><th scope="row">Lemon Squeezy</th>
+    <td>Your licence key only — no catalog data, no spreadsheet content</td>
+    <td>To check that a Pro licence is valid, at most once a day</td></tr>
+</tbody>
+</table></div>
+
+<p>Nothing else leaves your Google account. Storesheet contains no analytics, no telemetry,
+no crash reporting, no advertising identifiers and no third-party trackers.</p>
+
+<h2>Google user data — Limited Use</h2>
+<p>Storesheet's use and transfer of information received from Google APIs adheres to the
+<a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google
+API Services User Data Policy</a>, including the Limited Use requirements. Data obtained
+through Google APIs is used only to provide the features described on this site; it is not
+transferred to any third party except as required to provide those features — that is, to
+your own Shopify store; it is never sold; it is never used for advertising; and no human
+reads it, other than you.</p>
+
+<h2>Retention and deletion</h2>
+<ul>
+<li>Removing a store in the sidebar deletes its stored credentials and cached token immediately.</li>
+<li>Uninstalling the add-on removes the properties Storesheet saved in your Google account.</li>
+<li>The hidden sheets live in your spreadsheet; deleting the sheets, or the file, deletes them.</li>
+<li>Because the developer holds no copy of anything, there is nothing further to request deletion of.</li>
+</ul>
+
+<h2>Children</h2>
+<p>Storesheet is a business tool and is not directed at anyone under 16.</p>
+
+<h2>Changes to this policy</h2>
+<p>If this policy changes, the date at the top of the page changes with it, and any change
+that widens what Storesheet accesses will require you to grant permission again.</p>
+
+<h2>Contact</h2>
+<p><a href="mailto:hoangvhuan@gmail.com">hoangvhuan@gmail.com</a></p>
+
+</div></main>
+
+<footer><div class="wrap">
+<p>Google Sheets is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
+Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
+</div></footer>
+
+</div></main>
+<footer><div class="wrap">
+  <div class="links">
+    <a href="index.html">Storesheet</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="support.html">Support</a>
+    <a href="staff-access-shopify.html">Guides</a>
+  </div>
+  <p>Google Sheets™ is a trademark of Google LLC. Shopify is a trademark of Shopify Inc.
+  Storesheet is not affiliated with, endorsed by, or sponsored by Google LLC or Shopify Inc.</p>
+</div></footer>
+</body>
+</html>
