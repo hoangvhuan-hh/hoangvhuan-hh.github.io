@@ -176,7 +176,7 @@
 <main><div class="wrap">
 
 <h1>Privacy policy</h1>
-<p class="stamp">Last updated 7 September 2026</p>
+<p class="stamp">Last updated 15 September 2026</p>
 
 <p class="lede">Storesheet moves product data between a spreadsheet you own and a Shopify
 store you own. This page says exactly what it touches, and what it never sees.</p>
@@ -203,8 +203,55 @@ store directly.</p>
 </tbody>
 </table></div>
 
-<p>That is the complete list. Storesheet does not ask for Drive access, Gmail, contacts,
-calendar, or your Google profile.</p>
+<p>When you authorise the add-on, Google's consent screen also lists the two standard
+sign-in scopes, <code>userinfo.email</code> and <code>userinfo.profile</code>. Google uses them
+to show you which account you are authorising. Storesheet does not read, store or transmit
+your email address or profile through them; it does not ask for Drive access, Gmail,
+contacts or calendar. That is the complete list.</p>
+
+<h2>How sensitive data is protected</h2>
+<p>Google classifies <code>script.external_request</code> and <code>script.container.ui</code>
+as sensitive scopes. The sensitive data involved is your Shopify credentials and your product
+catalog. This is how each is protected, described as the add-on actually works:</p>
+<div class="sheet"><table>
+<thead><tr><th scope="col">safeguard</th><th scope="col">what Storesheet does</th></tr></thead>
+<tbody>
+<tr><th scope="row">Encryption in transit</th>
+    <td>Every network request the add-on makes is HTTPS (TLS). The only destinations are
+    <code>https://&lt;your-store&gt;.myshopify.com</code> and, for licence checks,
+    <code>https://api.lemonsqueezy.com</code>. The store address is validated against the
+    pattern <code>*.myshopify.com</code> before any request is sent, so credentials cannot be
+    posted to an arbitrary host.</td></tr>
+<tr><th scope="row">Encryption at rest</th>
+    <td>Credentials are stored with Google Apps Script's <code>PropertiesService</code>
+    (user properties) and catalog data with Google Sheets; both are held on Google
+    infrastructure and are encrypted at rest by Google. Storesheet keeps no copy anywhere else.</td></tr>
+<tr><th scope="row">Access control</th>
+    <td>User properties are readable only by this add-on running as you, in your Google
+    account. Other people you share the spreadsheet with cannot read them, other add-ons cannot
+    read them, and the developer cannot read them — there is no server, no service account, no
+    administrative console and no support tooling that could reach them. The spreadsheet itself
+    is protected by the sharing settings of your Google account.</td></tr>
+<tr><th scope="row">Credential handling</th>
+    <td>With the Client ID and Client secret you supply, the add-on obtains a short-lived
+    Shopify access token (valid 24 hours) directly from Shopify, caches it in your user
+    properties, and refreshes it before expiry. Secrets and tokens are never written into the
+    spreadsheet, never included in the job log, never sent to any host other than your own
+    store, and never printed to execution logs.</td></tr>
+<tr><th scope="row">Minimum access</th>
+    <td>The add-on requests the current spreadsheet only, not your whole Drive. On the Shopify
+    side it uses the product read and write permissions you granted to your own app, nothing
+    broader.</td></tr>
+<tr><th scope="row">No human access, no secondary use</th>
+    <td>No person other than you reads your credentials or catalog. Data obtained through
+    Google APIs is not used for advertising, is never sold, and is not used to develop, improve
+    or train any AI or machine-learning model, whether generalised or personalised.</td></tr>
+<tr><th scope="row">Incident response</th>
+    <td>If we learn of a vulnerability in the add-on that could expose credentials or catalog
+    data, we will publish a fixed version, describe the issue on this page and notify affected
+    users by email within 72 hours of confirming it.</td></tr>
+</tbody>
+</table></div>
 
 <h2>What it stores, and where</h2>
 <p>Storesheet stores the connection details for the Shopify stores you add: the store
@@ -248,7 +295,8 @@ reads it, other than you.</p>
 <li>Removing a store in the sidebar deletes its stored credentials and cached token immediately.</li>
 <li>Uninstalling the add-on removes the properties Storesheet saved in your Google account.</li>
 <li>The hidden sheets live in your spreadsheet; deleting the sheets, or the file, deletes them.</li>
-<li>Because the developer holds no copy of anything, there is nothing further to request deletion of.</li>
+<li>Cached Shopify access tokens expire on their own within 24 hours and are deleted when the store is removed.</li>
+<li>Because the developer holds no copy of anything, there is nothing further to request deletion of. If you nevertheless want written confirmation, or help removing the stored properties, email <a href="mailto:hoangvhuan@gmail.com">hoangvhuan@gmail.com</a> and we will respond within 7 days. You can also revoke the add-on's access to your Google account at any time from <a href="https://myaccount.google.com/connections" rel="noopener">myaccount.google.com/connections</a>.</li>
 </ul>
 
 <h2>Children</h2>
