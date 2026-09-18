@@ -119,6 +119,17 @@
   tbody th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;
            font-size:.86rem;color:var(--ink);white-space:nowrap}
 
+  /* ---- install call to action ---- */
+  .cta{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem .95rem;margin:0 0 1.7rem}
+  .btn{display:inline-block;background:var(--accent);color:var(--ground);
+       font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:.95rem;
+       letter-spacing:-.01em;text-decoration:none;padding:.7rem 1.15rem;border-radius:4px;
+       border:1px solid var(--accent);box-shadow:var(--shadow)}
+  .btn:hover{background:var(--surface);color:var(--accent)}
+  .btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .cta .fine{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;
+             color:var(--muted);letter-spacing:.01em}
+
   .note{border-left:3px solid var(--signal);background:var(--surface);
         padding:.95rem 1.15rem;margin:0 0 1.4rem;border-radius:0 4px 4px 0;font-size:.98rem}
   .note p:last-child{margin-bottom:0}
@@ -186,7 +197,8 @@ for as long as anyone is using them.</p>
 <tr><th scope="row"><a href="storesheet/">Storesheet</a></th>
     <td>Bulk edit a Shopify catalog inside a Google Sheet, with every write verified
         against the store afterwards and one-click undo</td>
-    <td>Add-on for Google Sheets™</td></tr>
+    <td>Add-on for Google Sheets™ — on the
+        <a href="https://workspace.google.com/marketplace/app/storesheet_bulk_edit_shopify_products/282426522100">Google Workspace Marketplace</a></td></tr>
 </tbody>
 </table></div>
 
