@@ -119,6 +119,17 @@
   tbody th{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:400;
            font-size:.86rem;color:var(--ink);white-space:nowrap}
 
+  /* ---- install call to action ---- */
+  .cta{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem .95rem;margin:0 0 1.7rem}
+  .btn{display:inline-block;background:var(--accent);color:var(--ground);
+       font-family:Archivo,system-ui,sans-serif;font-weight:600;font-size:.95rem;
+       letter-spacing:-.01em;text-decoration:none;padding:.7rem 1.15rem;border-radius:4px;
+       border:1px solid var(--accent);box-shadow:var(--shadow)}
+  .btn:hover{background:var(--surface);color:var(--accent)}
+  .btn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .cta .fine{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:.78rem;
+             color:var(--muted);letter-spacing:.01em}
+
   .note{border-left:3px solid var(--signal);background:var(--surface);
         padding:.95rem 1.15rem;margin:0 0 1.4rem;border-radius:0 4px 4px 0;font-size:.98rem}
   .note p:last-child{margin-bottom:0}
@@ -180,6 +191,11 @@
 <p class="lede">Pull products into a Google Sheet. Change prices, SKUs, tags and metafields
 the way you change anything else in a spreadsheet. Push back — and have every row checked
 against your store afterwards.</p>
+
+<p class="cta">
+  <a class="btn" href="https://workspace.google.com/marketplace/app/storesheet_bulk_edit_shopify_products/282426522100">Install from Google Workspace Marketplace</a>
+  <span class="fine">Free plan · no card · installs into Google Sheets™</span>
+</p>
 
 <p>Shopify's admin makes you edit one product at a time. CSV export and re-import makes you
 edit blind, then tells you nothing until it fails. Storesheet puts the catalog where
@@ -286,6 +302,11 @@ the work of managing a 3,000-product catalog is a genuinely different job from m
 <p>Agency exists because one person often runs a dozen storefronts for clients, and
 charging per store punishes exactly the people the spreadsheet workflow is built for.</p>
 
+<p class="cta">
+  <a class="btn" href="https://workspace.google.com/marketplace/app/storesheet_bulk_edit_shopify_products/282426522100">Get Storesheet on the Google Workspace Marketplace</a>
+  <span class="fine">Start on Free, upgrade inside the sidebar when the store outgrows it</span>
+</p>
+
 <h2>Guides</h2>
 <ul>
 <li><a href="staff-access-shopify.html">Your Shopify plan gives you zero staff accounts.
@@ -296,7 +317,9 @@ charging per store punishes exactly the people the spreadsheet workflow is built
 </ul>
 
 <h2>Setup</h2>
-<p>You create a Shopify app inside your own store and paste its Client ID and Client secret
+<p>Install Storesheet from the <a href="https://workspace.google.com/marketplace/app/storesheet_bulk_edit_shopify_products/282426522100">Google Workspace
+Marketplace</a>; it appears under <code>Extensions</code> in any Google Sheets™ spreadsheet.
+You create a Shopify app inside your own store and paste its Client ID and Client secret
 into the sidebar. Storesheet exchanges them for a 24-hour access token and refreshes it when
 it expires. No redirect, no callback, no account to create with us. Step-by-step instructions
 are on the <a href="support.html">support
